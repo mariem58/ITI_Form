@@ -4,3 +4,16 @@
     border-radius: 8px;
     padding:5px;
 }
+.header{
+    text-align: center;
+    font-weight: bold;
+    color: blueviolet;
+    background-color: #6a5e5e8d;
+    padding: 8px;
+    border-radius: 8px;
+    font-size: larger;
+}
+.container{
+    padding: 2px;
+    background-color: #eee;
+}

@@ -21,8 +21,11 @@ if(isset($_GET['errors'])){
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <form action="show.php" method="post">
+    <form  action="show.php" method="post">
         <div class="container">
+        <div class="header">Enter Your Information</div>
+        <br>
+        <br>   
         <label >FirstName: </label> 
         <input type="text" id="fname" name="fname" require> <br>
         <span class='danger'> 
@@ -66,11 +69,11 @@ if(isset($_GET['errors'])){
         <input type="checkbox" name="lang[]" value="C#">C#<br>
         <input type="checkbox" name="lang[]" value="Java">Java<br>
         <label >Username:</label> 
-        <input type="text" name="name" id="name" > <br>
+        <input type="text" name="username" id="username" > <br>
         <span class='danger'> 
-            <?php if(isset($errors['name']))
+            <?php if(isset($errors['username']))
             { 
-                echo $errors['name'];
+                echo $errors['username'];
             }
             ?>
          </span>
@@ -82,6 +85,7 @@ if(isset($_GET['errors'])){
         <button type="submit">Submit</button>
         <button type="reset">Reset</button>
         </div>
+        
     </form>
 </body>
 </html>
