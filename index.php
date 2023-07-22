@@ -1,8 +1,10 @@
 <?php
 $errors=array();
+// var_dump($_GET['errors']);
 if(isset($_GET['errors'])){
     $errors=json_decode($_GET['errors'],true);
 }
+
 ?>
 
 
@@ -18,7 +20,7 @@ if(isset($_GET['errors'])){
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <form action="../show.php" method="post">
+    <form action="show.php" method="post">
         <div class="container">
         <label >FirstName: </label> 
         <input type="text" id="fname" name="fname" require> <br>
