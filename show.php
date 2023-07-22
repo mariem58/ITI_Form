@@ -58,4 +58,62 @@ fwrite($file,"Department: $department \n");
 
 header("location:index.php?errors=$formErrors");
 
+$f = fopen($file, 'r');
+$records = [];
+
+
+   while (($line = fgets($file)) !==false) {
+        // Parse each line into array of fields
+        $record = explode('br', $line); // Change the delimiter if necessary
+        $records[] = $record;
+    }
+    fclose($file);
+
+// Display the records in a table
+echo '<table>';
+echo '<tr>
+<th>First Name/th>
+<th>Last Name</th>
+<th>Address</th>
+<th>Gender</th>
+<th>Skills</th>
+<th>Username</th> 
+<th>Department</th>
+<th>Delete</th>
+</tr>'; // Replace Field 1 and Field 2 with your actual field names
+
+foreach ($records as $record) {
+    echo '<tr>';
+    foreach ($record as $field) {
+        echo '<td>' . $field . '</td>';
+    }
+    echo '<td><button onclick="deleteRecord(this)">Delete</button></td>';
+    echo '</tr>';
+}
+
+echo '</table>';
 ?>
+
+<script>
+function deleteRecord(button) {
+    var row = button.parentNode.parentNode;
+    var rowIndex = row.rowIndex;
+
+    // Remove the row from the table
+ document.querySelector('table').deleteRow(rowIndex);
+
+    // Send AJAX request to delete the record from the file
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', 'delete_record.php'); // Create a separate PHP file to handle the deletion
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr.onload = function() {
+        if (xhr.status === 200) {
+            console.log('Record deleted successfully');
+        } else {
+            console.log('Error deleting record');
+        }
+    };
+    xhr.send('rowIndex=' + rowIndex);
+}
+</script>
+

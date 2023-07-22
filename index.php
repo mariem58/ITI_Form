@@ -25,7 +25,11 @@ if(isset($_GET['errors'])){
         <div class="container">
         <div class="header">Enter Your Information</div>
         <br>
-        <br>   
+        <br>  
+        <label>User ID:</label>
+        <input type="text" name="user_id" required><br> 
+
+        
         <label >FirstName: </label> 
         <input type="text" id="fname" name="fname" require> <br>
         <span class='danger'> 

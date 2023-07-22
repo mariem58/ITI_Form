@@ -1,5 +1,5 @@
 <?php
-// // echo "Hello From deleteuser";
+echo "Hello From deleteuser";
 // $username=$_GET("name");
 // $users=file('passwd.txt');
 // // var_dump($username);
